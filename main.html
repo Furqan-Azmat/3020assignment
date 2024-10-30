@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz/Flashcard App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <h1>Flashcard Quiz</h1>
+        <div class="flashcard-container">
+            <div class="flashcard">
+                <div class="card-content">
+                    <div class="card-front">
+                        <p>What is the capital of France?</p>
+                    </div>
+                    <div class="card-back">
+                        <p>Paris</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flashcard">
+                <div class="card-content">
+                    <div class="card-front">
+                        <p>What is the largest planet in our Solar System?</p>
+                    </div>
+                    <div class="card-back">
+                        <p>Jupiter</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more flashcards as needed -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+    document.querySelectorAll('.flashcard').forEach(card => {
+    card.addEventListener('click', () => {
+        card.querySelector('.card-content').classList.toggle('flip');
+    });
+});
+
+</body>
+</html>
