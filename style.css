@@ -244,3 +244,46 @@ h1 {
 .flashcard.review .card-back {
     border: 2px solid #d9534f;
 }
+
+.main-menu {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.main-menu h1 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+#start-btn {
+    padding: 15px 30px;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#start-btn:hover {
+    background-color: #357abd;
+}
+
+/* Back to Main Menu Button */
+#back-to-menu-btn {
+    padding: 10px 20px;
+    background-color: #d9534f; /* Bootstrap's danger color */
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Space below the button */
+}
+
+#back-to-menu-btn:hover {
+    background-color: #c9302c;
+}

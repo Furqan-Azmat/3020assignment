@@ -247,6 +247,14 @@ filterBtn.addEventListener('click', () => {
     loadFlashcard(currentCard);
 });
 
+// Select the Back to Main Menu button
+const backToMenuBtn = document.getElementById('back-to-menu-btn');
+
+// Event listener for Back to Main Menu button
+backToMenuBtn.addEventListener('click', () => {
+    window.location.href = 'index.html';
+});
+
 // Initial setup
 loadFlashcards();
 updateProgressCounts();
