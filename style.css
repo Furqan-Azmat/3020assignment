@@ -215,6 +215,54 @@ h1 {
     cursor: pointer;
 }
 
+#library-btn {
+    padding: 8px 16px;
+    background-color: #f0ad4e;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#library {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#library h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#library ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#library li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#closeLibraryBtn {
+    margin-top: 20px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#closeLibraryBtn:hover {
+    background-color: #0056b3;
+}
+
 /* Status actions styling */
 .status-actions {
     display: flex;
