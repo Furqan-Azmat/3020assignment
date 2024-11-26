@@ -28,6 +28,10 @@ const masteredCount = document.getElementById('mastered-count');
 const reviewCount = document.getElementById('review-count');
 const filterBtn = document.getElementById('filter-btn');
 const flashcardElement = document.querySelector('.flashcard');
+const libraryBtn = document.getElementById('library-btn');
+const library = document.getElementById('library');
+const flashcardList = document.getElementById('flashcardList');
+const closeLibraryBtn = document.getElementById('closeLibraryBtn');
 
 // Load flashcards from Local Storage
 function loadFlashcards() {
@@ -118,6 +122,34 @@ function updateProgressCounts() {
     masteredCount.textContent = `Mastered: ${mastered}`;
     reviewCount.textContent = `Needs Review: ${review}`;
 }
+
+// Function to Display Flashcards in Library
+function displayFlashcards() {
+    flashcardList.innerHTML = ''; // Clear any existing content in the flashcard list
+    const filteredFlashcards = getFilteredFlashcards(); // Get filtered flashcards based on the current filter
+
+    if (filteredFlashcards.length === 0) {
+        flashcardList.innerHTML = '<li>No flashcards available.</li>'; // If no flashcards, display a message
+    } else {
+        // Loop through each flashcard and add it to the list
+        filteredFlashcards.forEach(flashcard => {
+            const listItem = document.createElement('li'); // Create a list item
+            listItem.textContent = `${flashcard.question} - ${flashcard.answer} (${flashcard.status})`; // Add text to the list item
+            flashcardList.appendChild(listItem); // Append the list item to the flashcard list
+        });
+    }
+}
+
+
+// Event Listeners for Library Button and Close Button
+libraryBtn.addEventListener('click', () => {
+    library.style.display = 'block'; // Show the library container
+    displayFlashcards(); // Display all flashcards in the library
+});
+
+closeLibraryBtn.addEventListener('click', () => {
+    library.style.display = 'none'; // Hide the library container
+});
 
 // Event listeners for navigation buttons
 prevBtn.addEventListener('click', () => {
