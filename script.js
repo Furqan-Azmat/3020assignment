@@ -29,10 +29,8 @@ const masteredCount = document.getElementById('mastered-count');
 const reviewCount = document.getElementById('review-count');
 const filterBtn = document.getElementById('filter-btn');
 const flashcardElement = document.querySelector('.flashcard');
-const libraryBtn = document.getElementById('library-btn');
-const library = document.getElementById('library');
 const flashcardList = document.getElementById('flashcardList');
-const closeLibraryBtn = document.getElementById('closeLibraryBtn');
+
 
 // Load flashcards from Local Storage
 function loadFlashcards() {
@@ -141,15 +139,7 @@ function displayFlashcards() {
 }
 
 
-// Event Listeners for Library Button and Close Button
-libraryBtn.addEventListener('click', () => {
-    library.style.display = 'block'; // Show the library container
-    displayFlashcards(); // Display all flashcards in the library
-});
 
-closeLibraryBtn.addEventListener('click', () => {
-    library.style.display = 'none'; // Hide the library container
-});
 
 // Event listeners for navigation buttons
 prevBtn.addEventListener('click', () => {

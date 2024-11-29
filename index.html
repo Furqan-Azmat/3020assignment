@@ -10,6 +10,7 @@
         <h1>Welcome to the Flashcard App</h1>
         <button id="start-btn">Practice Flashcards</button>
         <button id="quiz-btn">Quiz Mode</button>
+        <button id="library-btn">View Library</button>
     </div>
     <script>
         // Redirect to the flashcard app
@@ -20,6 +21,11 @@
         // Redirect to the quiz mode
         document.getElementById('quiz-btn').addEventListener('click', function() {
             window.location.href = 'quiz.html';
+        });
+    
+        // Redirect to the library
+        document.getElementById('library-btn').addEventListener('click', function() {
+            window.location.href = 'library.html';
         });
     </script>
 </body>
