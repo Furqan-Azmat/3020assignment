@@ -125,17 +125,16 @@ function updateProgressCounts() {
 
 // Function to Display Flashcards in Library
 function displayFlashcards() {
-    flashcardList.innerHTML = ''; // Clear any existing content in the flashcard list
-    const filteredFlashcards = getFilteredFlashcards(); // Get filtered flashcards based on the current filter
+    flashcardList.innerHTML = ''; // Clear existing content
+    const filteredFlashcards = getFilteredFlashcards();
 
     if (filteredFlashcards.length === 0) {
-        flashcardList.innerHTML = '<li>No flashcards available.</li>'; // If no flashcards, display a message
+        flashcardList.innerHTML = '<li>No flashcards available.</li>';
     } else {
-        // Loop through each flashcard and add it to the list
         filteredFlashcards.forEach(flashcard => {
-            const listItem = document.createElement('li'); // Create a list item
-            listItem.textContent = `${flashcard.question} - ${flashcard.answer} (${flashcard.status})`; // Add text to the list item
-            flashcardList.appendChild(listItem); // Append the list item to the flashcard list
+            const listItem = document.createElement('li');
+            listItem.textContent = `${flashcard.question} - ${flashcard.answer} (${flashcard.status}, Category: ${flashcard.category})`;
+            flashcardList.appendChild(listItem);
         });
     }
 }
@@ -193,16 +192,17 @@ flashcardForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const question = questionInput.value.trim();
     const answer = answerInput.value.trim();
+    const category = document.getElementById('category').value;
 
-    if (question && answer) {
+    if (question && answer && category) {
         if (isEditing && editingIndex !== null) {
             // Update existing flashcard
             flashcards[editingIndex].question = question;
             flashcards[editingIndex].answer = answer;
+            flashcards[editingIndex].category = category;
         } else {
             // Add new flashcard
-            flashcards.push({ question, answer, status: 'review' });
-            currentCard = getFilteredFlashcards().length - 1;
+            flashcards.push({ question, answer, status: 'review', category });
         }
         saveFlashcards();
         updateProgressCounts();
@@ -211,6 +211,28 @@ flashcardForm.addEventListener('submit', (e) => {
         addNewBtn.style.display = 'block';
         loadFlashcard(currentCard);
     }
+});
+
+// Get flashcards based on filter and category
+function getFilteredFlashcards() {
+    let filtered = flashcards;
+
+    if (filterStatus !== 'all') {
+        filtered = filtered.filter(card => card.status === filterStatus);
+    }
+
+    const categoryFilter = document.getElementById('category-filter').value;
+    if (categoryFilter !== 'all') {
+        filtered = filtered.filter(card => card.category === categoryFilter);
+    }
+
+    return filtered;
+}
+
+// Event listener for category filter
+document.getElementById('category-filter').addEventListener('change', () => {
+    currentCard = 0;
+    loadFlashcard(currentCard);
 });
 
 // Event listener for Edit button
