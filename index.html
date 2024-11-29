@@ -8,12 +8,18 @@
 <body>
     <div class="main-menu">
         <h1>Welcome to the Flashcard App</h1>
-        <button id="start-btn">Practice flashcards</button>
+        <button id="start-btn">Practice Flashcards</button>
+        <button id="quiz-btn">Quiz Mode</button>
     </div>
     <script>
-        // Redirect to the flashcard app when the button is clicked
+        // Redirect to the flashcard app
         document.getElementById('start-btn').addEventListener('click', function() {
             window.location.href = 'flashcards.html';
+        });
+    
+        // Redirect to the quiz mode
+        document.getElementById('quiz-btn').addEventListener('click', function() {
+            window.location.href = 'quiz.html';
         });
     </script>
 </body>

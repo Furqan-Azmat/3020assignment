@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Mode</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <button id="back-to-menu-btn">Back to Main Menu</button>
+        <h1>Quiz Mode</h1>
+        <div class="quiz-question">
+            <p id="quiz-question-text"></p>
+        </div>
+        <div class="quiz-options">
+            <button class="quiz-option" id="option-1"></button>
+            <button class="quiz-option" id="option-2"></button>
+            <button class="quiz-option" id="option-3"></button>
+            <button class="quiz-option" id="option-4"></button>
+        </div>
+        <p id="quiz-feedback"></p>
+        <button id="next-question-btn" style="display: none;">Next Question</button>
+        <p id="quiz-score">Score: 0</p>
+    </div>
+    <script src="quiz.js"></script>
+</body>
+</html>
