@@ -66,13 +66,11 @@
                 <label for="answer">Answer:</label>
                 <textarea id="answer" required></textarea>
                 <label for="category">Category:</label>
-        <select id="category" required>
-            <option value="">Select Category</option>
-            <option value="Math">Math</option>
-            <option value="Science">Science</option>
-            <option value="History">History</option>
-            <!-- Add more categories as needed -->
-        </select>
+                <select id="category" required>
+                    <option value="">Select or Add Category</option>
+                </select>
+                <input type="text" id="new-category" placeholder="Add new category" />
+                <button id="add-category-btn">Add Category</button>
                 <button type="submit" id="save-btn">Save Flashcard</button>
                 <button type="button" id="cancel-btn">Cancel</button>
             </form>

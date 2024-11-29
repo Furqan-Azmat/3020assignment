@@ -5,6 +5,7 @@ let currentCard = 0;
 let isEditing = false;
 let editingIndex = null;
 let filterStatus = 'all'; // 'all', 'mastered', 'review'
+let categories = [];
 
 // Select DOM elements
 const cardContent = document.querySelector('.card-content');
@@ -309,7 +310,70 @@ backToMenuBtn.addEventListener('click', () => {
     window.location.href = 'index.html';
 });
 
+// Load categories from LocalStorage
+function loadCategories() {
+    const storedCategories = localStorage.getItem('categories');
+    categories = storedCategories ? JSON.parse(storedCategories) : [];
+    updateCategoryDropdown();
+}
+
+// Save categories to LocalStorage
+function saveCategories() {
+    localStorage.setItem('categories', JSON.stringify(categories));
+}
+
+// Update the category dropdown
+function updateCategoryDropdown() {
+    const categoryDropdown = document.getElementById('category');
+    categoryDropdown.innerHTML = '<option value="">Select or Add Category</option>';
+    categories.forEach(category => {
+        const option = document.createElement('option');
+        option.value = category;
+        option.textContent = category;
+        categoryDropdown.appendChild(option);
+    });
+}
+
+// Event listener for adding a new category
+document.getElementById('add-category-btn').addEventListener('click', () => {
+    const newCategoryInput = document.getElementById('new-category');
+    const newCategory = newCategoryInput.value.trim();
+
+    if (newCategory && !categories.includes(newCategory)) {
+        categories.push(newCategory);
+        saveCategories();
+        updateCategoryDropdown();
+        newCategoryInput.value = ''; // Clear the input
+        alert(`Category "${newCategory}" added!`);
+    } else if (categories.includes(newCategory)) {
+        alert('This category already exists.');
+    }
+});
+
+// Event listener for category filter
+document.getElementById('category-filter').addEventListener('change', () => {
+    const categoryFilter = document.getElementById('category-filter').value;
+    const filteredFlashcards = categoryFilter === 'all'
+        ? flashcards
+        : flashcards.filter(card => card.category === categoryFilter);
+    displayFilteredFlashcards(filteredFlashcards);
+});
+
+// Populate category filter dropdown dynamically
+function updateCategoryFilterDropdown() {
+    const filterDropdown = document.getElementById('category-filter');
+    filterDropdown.innerHTML = '<option value="all">All</option>';
+    categories.forEach(category => {
+        const option = document.createElement('option');
+        option.value = category;
+        option.textContent = category;
+        filterDropdown.appendChild(option);
+    });
+}
+
 // Initial setup
+loadCategories();
+updateCategoryFilterDropdown();
 loadFlashcards();
 updateProgressCounts();
 loadFlashcard(currentCard);
