@@ -36,6 +36,8 @@ function generateOptions(correctAnswer, allAnswers) {
     return shuffle(Array.from(options));
 }
 
+
+
 // Load a question
 function loadQuestion() {
     if (currentQuestionIndex >= quizQuestions.length) {
