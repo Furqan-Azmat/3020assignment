@@ -554,6 +554,19 @@ h1 {
     color: #333;
 }
 
+.correct {
+    background-color: #4caf50; /* Green for correct matches */
+    color: white;
+    pointer-events: none;
+}
+
+.incorrect {
+    background-color: #f44336; /* Red for incorrect matches */
+    color: white;
+    pointer-events: none;
+}
+
+
 .buttons {
     margin-top: 20px;
     display: flex;

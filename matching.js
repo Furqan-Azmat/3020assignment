@@ -90,17 +90,44 @@ function selectItem(type, index, element) {
     }
 }
 
+
 // Check matches
 function checkMatches() {
     let correctMatches = 0;
 
     flashcards.forEach((flashcard, index) => {
-        if (selectedPairs[index] === flashcard.answer) {
-            correctMatches++;
+        // Find the question element
+        const questionElement = document.querySelector(`.question[data-index="${index}"]`);
+        const matchedAnswer = selectedPairs[index];
+        const correctAnswer = flashcard.answer;
+
+        // If a match exists
+        if (matchedAnswer) {
+            // Find the corresponding answer element
+            const answerElement = [...answersColumn.children].find(
+                (el) => el.textContent.trim() === matchedAnswer.trim()
+            );
+
+            if (matchedAnswer === correctAnswer) {
+                // Correct match
+                questionElement.classList.add('correct');
+                answerElement.classList.add('correct');
+                correctMatches++;
+            } else {
+                // Incorrect match
+                questionElement.classList.add('incorrect');
+                if (answerElement) {
+                    answerElement.classList.add('incorrect');
+                }
+            }
         }
     });
 
+    // Display the result
     result.textContent = `You matched ${correctMatches} out of ${flashcards.length} correctly!`;
+
+    // Disable further interaction
+    checkMatchesBtn.disabled = true;
 }
 
 // Event listeners
