@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timed Flashcard Quiz</title>
+    <link rel="stylesheet" href="timequiz.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Back to Main Menu Button -->
+        <button id="back-to-menu-btn">Back to Main Menu</button>
+
+      
+
+        <!-- Page Title -->
+        <h1>Timed Flashcard Quiz</h1>
+
+        <!-- Instructions -->
+        <p>Instructions:</p>
+        <ul>
+            <li>You have 10 seconds to answer each question.</li>
+            <li>Type your answer in the input box and press Enter to submit the answer
+            <li>Then click "Next" to go to the next question.</li>
+            <li>Click the "Exit Test" button to exit the quiz anytime.</li>
+            <li>After finishing, you will see which answers you got correct and incorrect.</li>
+        </ul>
+
+        <!-- Start Quiz Button -->
+        <button id="start-quiz-btn">Start Quiz</button>
+
+        <!-- Quiz Container -->
+        <div id="quiz-container" style="display: none;">
+            <h2 id="question">Question will appear here</h2>
+            <input type="text" id="answer-input" placeholder="Type your answer" autocomplete="off">
+            <p id="timer">Time Remaining: 10 seconds</p>
+            <button id="next-button" style="display: none;">Next</button>
+        </div>
+
+        <!-- Results Container -->
+        <div id="results-container" style="display: none;">
+            <h2>Quiz Results</h2>
+            <ul id="results-list"></ul>
+            <button id="restart-quiz-btn">Restart Quiz</button>
+            <button id="back-to-menu-btn2">Back to Main Menu</button>
+        </div>
+
+        <!-- Exit Quiz Button -->
+        <button id="exit-button">Exit Test</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="timequiz.js"></script>
+</body>
+</html>
