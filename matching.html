@@ -19,6 +19,12 @@
         </div>
         <p id="result"></p>
     </div>
+    <script>
+        const loggedInUser = localStorage.getItem('loggedInUser');
+            if (!loggedInUser) {
+                window.location.href = 'login.html';
+            }
+    </script>
     <script src="matching.js"></script>
 </body>
 </html>

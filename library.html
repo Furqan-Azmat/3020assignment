@@ -12,5 +12,11 @@
     <div id="flashcard-grid"></div> <!-- Flashcards will be appended directly here -->
     <script src="library.js"></script>
     </div>
+    <script>
+        const loggedInUser = localStorage.getItem('loggedInUser');
+            if (!loggedInUser) {
+                window.location.href = 'login.html';
+            }
+    </script>
 </body>
 </html>

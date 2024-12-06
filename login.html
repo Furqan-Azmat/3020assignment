@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login / Register</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Welcome to the Flashcard App</h1>
+
+        <!-- Login Form -->
+        <div class="form-container" id="login-form-container">
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="login-username">Username:</label>
+                <input type="text" id="login-username" required>
+                
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" required>
+                
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <span id="show-register">Register here</span>.</p>
+        </div>
+
+        <!-- Register Form -->
+        <div class="form-container" id="register-form-container" style="display: none;">
+            <h2>Register</h2>
+            <form id="register-form">
+                <label for="register-username">Username:</label>
+                <input type="text" id="register-username" required>
+                
+                <label for="register-password">Password:</label>
+                <input type="password" id="register-password" required>
+                
+                <label for="register-confirm-password">Confirm Password:</label>
+                <input type="password" id="register-confirm-password" required>
+                
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <span id="show-login">Login here</span>.</p>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
